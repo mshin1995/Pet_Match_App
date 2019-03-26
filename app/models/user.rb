@@ -7,4 +7,9 @@ class User < ApplicationRecord
   validates :pet_bio, presence: true, length: {in: 10..300}
   validates :pet_pic, presence: true
   has_one_attached :pet_pic
+
+  has_many :likes, dependent: :destroy
+  has_many :inverse_likes, class_name: "Like", foreign_key: "likee_id", dependent: :destroy
+
+
 end

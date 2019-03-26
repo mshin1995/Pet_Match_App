@@ -2,7 +2,7 @@ class LikesController < ApplicationController
 
   def create
     @like = Like.create(like_params)
-    @user = params[:like][:liker_id]
+    @user = params[:like][:user_id]
     redirect_to "/users/#{@user}/random"
   end
 
@@ -13,7 +13,7 @@ class LikesController < ApplicationController
   private
 
   def like_params
-    params.require(:like).permit(:liker_id, :likee_id)
+    params.require(:like).permit(:user_id, :likee_id)
   end
 
 end

@@ -29,9 +29,8 @@ class UsersController < ApplicationController
   end
 
   def random
-    @random_user = User.all.sample
+    @random_user = User.where.not(id: @user.id).sample
     @like = Like.new
-    render :random
   end
 
   private
