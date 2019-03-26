@@ -13,6 +13,8 @@ class User < ApplicationRecord
   validates :location, numericality: false
 
   has_one_attached :pet_pic
-  # validates_format_of :pet_pic, { with: "image/jpg", "image/jpeg", "image/png", "image/gif"}
+  # trying to validate that pic is an image, doesn't work:
+  # validates :pet_pic, { with: "image/jpg", "image/jpeg", "image/png", "image/gif"}
+
 
 end
