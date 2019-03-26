@@ -1,15 +1,26 @@
 class User < ApplicationRecord
-  validates :username, presence: true, uniqueness: true, length: {in: 6..10}
-  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :location, presence: true, numericality: false
-  validates :pet_name, presence: true
-  validates :pet_age, presence: true
-  validates :pet_bio, presence: true, length: {in: 10..300}
-  validates :pet_pic, presence: true
+  # makes sure all fields are filled
+  validates :username, :email, :location, :pet_name, :pet_age, :pet_bio, :pet_pic, presence: true
+
+  # username & email must be unique & are not case sensitive
+  validates :username, :email, uniqueness: true, case_sensitive: false
+
+  # length validations
+  validates :username, length: {in: 5..20}
+  validates :pet_bio, length: {in: 10..300}
+
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :location, numericality: false
+
   has_one_attached :pet_pic
+
 
   has_many :likes, dependent: :destroy
   has_many :inverse_likes, class_name: "Like", foreign_key: "likee_id", dependent: :destroy
+=======
+  # trying to validate that pic is an image, doesn't work:
+  # validates :pet_pic, { with: "image/jpg", "image/jpeg", "image/png", "image/gif"}
+
 
 
 end

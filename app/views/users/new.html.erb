@@ -1,19 +1,31 @@
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <h2>Create a Profile</h2>
 
 <%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <%= f.label :pet_name %>
-  <%= f.text_field :pet_name %>
-  <%= f.label :pet_age %>
-  <%= f.number_field :pet_age %>
-  <%= f.label :pet_bio %>
-  <%= f.text_area :pet_bio %>
-  <%= f.label :pet_pic %>
-  <%= f.file_field :pet_pic %>
-  <%= f.submit %>
+  <%= f.label :username, "Create a username:" %><p>
+  <%= f.text_field :username %><p>
+  <%= f.label :email, "Email:" %><p>
+  <%= f.text_field :email %><p>
+  <%= f.label :location, "Location:" %><p>
+  <%= f.text_field :location %><p>
+  <%= f.label :pet_pic, "Upload a picture of your pet:" %><p>
+  <%= f.file_field :pet_pic %><p>
+  <%= f.label :pet_name, "Your pet's name:" %><p>
+  <%= f.text_field :pet_name %><p>
+  <%= f.label :pet_age, "Your pet's age:" %><p>
+  <%= f.number_field :pet_age %><p>
+  <%= f.label :pet_bio, "Write a bio about your pet:" %><p>
+  <%= f.text_area :pet_bio %><p>
+  <%= f.submit "Create New User" %>
 <% end %>
