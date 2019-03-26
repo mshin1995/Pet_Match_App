@@ -14,4 +14,5 @@ class User < ApplicationRecord
 
   has_one_attached :pet_pic
   # validates_format_of :pet_pic, { with: "image/jpg", "image/jpeg", "image/png", "image/gif"}
+
 end
