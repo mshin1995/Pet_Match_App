@@ -29,8 +29,11 @@ class UsersController < ApplicationController
   end
 
   def random
-    @random_user = User.where.not(id: @user.id).sample
-    @like = Like.new
+    if @random_user = User.all_except(@user).sample
+      @like = Like.new
+    else
+      redirect_to @user
+    end
   end
 
   private
@@ -41,6 +44,12 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def get_likee_id
+    @user.likes.each do |likes|
+      likee_id = likes.likee_id
+    end
   end
 
 end
