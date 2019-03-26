@@ -1,0 +1,19 @@
+<h2>Create a Profile</h2>
+
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <%= f.label :pet_name %>
+  <%= f.text_field :pet_name %>
+  <%= f.label :pet_age %>
+  <%= f.number_field :pet_age %>
+  <%= f.label :pet_bio %>
+  <%= f.text_area :pet_bio %>
+  <%= f.label :pet_pic %>
+  <%= f.file_field :pet_pic %>
+  <%= f.submit %>
+<% end %>

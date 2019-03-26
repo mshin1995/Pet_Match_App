@@ -1,0 +1,9 @@
+<p>
+<%= form_for @like do |f| %>
+  <%= @random_user.pet_name %><br>
+  <%= image_tag @random_user.pet_pic %>
+    <%= f.hidden_field :liker_id, :value => @user.id %>
+    <%= f.hidden_field :likee_id, :value=> @random_user.id %>
+    <%= f.submit "Like" %>
+<% end %>
+</p>
