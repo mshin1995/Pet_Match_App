@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# User.destroy_all
+#
+# user1 = User.create(
+#   username: "clairemuller",
+#   email: "cmuller@hotmail.com",
+#   location: "Seattle",
+#   pet_name: "George",
+#   pet_age: 2,
+#   pet_bio: "George is a cute kitty with a big personality!",
+# )
+# pet_pic: "george.jpg"
+
+# user1.pet_pic.attach(io: File.open("app/assets/images/george.jpg"), filename: 'george2.jpg')
