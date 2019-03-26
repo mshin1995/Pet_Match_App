@@ -1,1 +1,9 @@
 <h1>All Users</h1>
+
+<% @users.each do |user| %>
+  username: <%= user.username %><br>
+  pet name: <%= user.pet_name %><br>
+  pet age: <%= user.pet_age %><br>
+  pet bio: <%= user.pet_bio %><br>
+  pet pic: <%= image_tag user.pet_pic %><br>
+<% end %>
