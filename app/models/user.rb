@@ -13,8 +13,14 @@ class User < ApplicationRecord
   validates :location, numericality: false
 
   has_one_attached :pet_pic
+
+
+  has_many :likes, dependent: :destroy
+  has_many :inverse_likes, class_name: "Like", foreign_key: "likee_id", dependent: :destroy
+=======
   # trying to validate that pic is an image, doesn't work:
   # validates :pet_pic, { with: "image/jpg", "image/jpeg", "image/png", "image/gif"}
+
 
 
 end
