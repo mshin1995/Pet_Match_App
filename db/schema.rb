@@ -50,15 +50,9 @@ ActiveRecord::Schema.define(version: 2019_03_27_161547) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "matches", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "likee_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
+    t.string "password_digest"
     t.string "email"
     t.string "location"
     t.string "pet_name"

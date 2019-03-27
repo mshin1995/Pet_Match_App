@@ -21,6 +21,8 @@ class User < ApplicationRecord
 
   has_many_attached :pet_pic
 
+  has_secure_password
+
   # trying to validate that pic is an image, doesn't work:
   # validates :pet_pic, { with: "image/jpg", "image/jpeg", "image/png", "image/gif"}
 
