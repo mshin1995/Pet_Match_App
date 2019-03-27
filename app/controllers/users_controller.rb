@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :random, :likes, :dislikes]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :random, :likes, :dislikes, :matches]
 
   def index
     @users = User.all
@@ -36,6 +36,9 @@ class UsersController < ApplicationController
     else
       redirect_to @user
     end
+  end
+
+  def matches
   end
 
   private
