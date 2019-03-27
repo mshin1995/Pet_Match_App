@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     if !logged_in?
-      redirect_to login_path
+      redirect_to new_user_path
     end
   end
 

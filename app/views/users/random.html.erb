@@ -1,3 +1,4 @@
+<h2><%= @random_user.pet_name %></h2>
 <% @random_user.pet_pic.each do |pic| %>
   <%= image_tag pic.variant(resize: "500x500") %>
 <% end %>

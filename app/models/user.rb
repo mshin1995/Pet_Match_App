@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :dislikes, dependent: :destroy
   has_many :inverse_likes, class_name: "Like", foreign_key: "likee_id", dependent: :destroy
   has_many :inverse_dislikes, class_name: "Dislike", foreign_key: "dislikee_id", dependent: :destroy
-  has_many :matches, through: :likes, dependent: :destroy
+
 
   # makes sure all fields are filled
   validates :username, :email, :location, :pet_name, :pet_age, :pet_bio, :pet_pic, presence: true
