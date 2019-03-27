@@ -16,11 +16,11 @@ class User < ApplicationRecord
 
 
   has_many :likes, dependent: :destroy
+  has_many :matches, through: :likes, dependent: :destroy
   has_many :inverse_likes, class_name: "Like", foreign_key: "likee_id", dependent: :destroy
 
   # trying to validate that pic is an image, doesn't work:
   # validates :pet_pic, { with: "image/jpg", "image/jpeg", "image/png", "image/gif"}
-
 
   def self.all_except(user)
     where.not(id: user.likes.pluck(:likee_id) << user.id)
