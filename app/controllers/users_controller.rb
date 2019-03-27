@@ -11,7 +11,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.pet_pic.attach(params[:user][:pet_pic])
 
     if @user.save
       redirect_to @user
@@ -34,6 +33,7 @@ class UsersController < ApplicationController
     if
       @random_user = User.all_except(@user).sample
       @like = Like.new
+      @dislike = Dislike.new
     else
       redirect_to @user
     end
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :location, :pet_name, :pet_age, :pet_bio, :pet_pic)
+    params.require(:user).permit(:username, :email, :location, :pet_name, :pet_age, :pet_bio, pet_pic: [])
   end
 
   def set_user

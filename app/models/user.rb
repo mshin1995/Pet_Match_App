@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :location, numericality: false
 
-  has_one_attached :pet_pic
+  has_many_attached :pet_pic
 
 
   has_many :likes, dependent: :destroy

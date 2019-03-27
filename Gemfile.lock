@@ -75,6 +75,8 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+    dropzonejs-rails (0.8.4)
+      rails (> 3.1)
     erubi (1.8.0)
     execjs (2.7.0)
     ffi (1.10.0)
@@ -207,6 +209,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  dropzonejs-rails
   image_processing (~> 1.2)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
