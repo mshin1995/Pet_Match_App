@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :dislikes
-  resources :likes
+  resources :dislikes, only: [:create, :index]
+  resources :likes, only: [:create, :index]
   resources :users
 
   get '/users/:id/random', to: 'users#random'
