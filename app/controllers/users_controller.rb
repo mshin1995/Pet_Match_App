@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :random, :likes, :dislikes]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :random, :likes, :dislikes, :matches]
   before_action :already_logged_in, only: [:new, :create]
   skip_before_action :authenticate_user, only: [:new, :create]
 

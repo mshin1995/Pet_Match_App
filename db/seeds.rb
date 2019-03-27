@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 User.destroy_all
 
 user1 = User.new(
@@ -115,3 +116,4 @@ user9 = User.new(
 )
 user9.pet_pic.attach(io: File.open("app/assets/images/dog8.jpg"), filename: "dog8.jpg")
 user9.save
+
