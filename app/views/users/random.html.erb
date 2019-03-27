@@ -1,12 +1,17 @@
-<%= form_for @user do |f| %>
+<%# Dislike Button %>
+<%= form_for @dislike do |f| %>
+  <%= f.hidden_field :user_id, :value => @user.id %>
+  <%= f.hidden_field :dislikee_id, :value=> @random_user.id %>
   <%= f.submit "Dislike" %>
 <% end %>
 
+<%# Like Button %>
 <%= form_for @like do |f| %>
   <%= f.hidden_field :user_id, :value => @user.id %>
   <%= f.hidden_field :likee_id, :value=> @random_user.id %>
   <%= f.submit "Like" %>
 <% end %>
 
+<%# Display name & pic %>
 <h1><%= @random_user.pet_name %><br></h1>
 <%= image_tag @random_user.pet_pic %>

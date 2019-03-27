@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :random, :likes]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :random, :likes, :dislikes]
 
   def index
     @users = User.all
@@ -28,19 +28,14 @@ class UsersController < ApplicationController
   end
 
   def random
-    @random_user = User.all_except(@user).sample
-    
-    if
-      @random_user = User.all_except(@user).sample
+    # if there are still users to show, create new dis/like
+    # else send them to no matches page
+    if @random_user = @user.users_not_seen_yet.sample
       @like = Like.new
       @dislike = Dislike.new
     else
       redirect_to @user
     end
-
-  end
-
-  def likes
   end
 
   private
@@ -51,12 +46,6 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
-  end
-
-  def get_likee_id
-    @user.likes.each do |likes|
-      likee_id = likes.likee_id
-    end
   end
 
 end
