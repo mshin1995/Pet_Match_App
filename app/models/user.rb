@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :location, numericality: false
 
-  has_one_attached :pet_pic
+  has_many_attached :pet_pic
 
 
   has_many :likes, dependent: :destroy
@@ -20,8 +20,6 @@ class User < ApplicationRecord
 
   # trying to validate that pic is an image, doesn't work:
   # validates :pet_pic, { with: "image/jpg", "image/jpeg", "image/png", "image/gif"}
-
-
 
 
   def self.all_except(user)

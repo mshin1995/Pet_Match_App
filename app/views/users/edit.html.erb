@@ -13,7 +13,7 @@
   <%= f.number_field :pet_age %>
   <%= f.label :pet_bio %>
   <%= f.text_area :pet_bio %>
-  <%= f.label :pet_pic %>
-  <%= f.file_field :pet_pic %>
+  <%= f.label :pet_pics %>
+  <%= f.file_field :pet_pic, multiple: true %>
   <%= f.submit %>
 <% end %>

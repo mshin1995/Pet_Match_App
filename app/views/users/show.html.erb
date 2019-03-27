@@ -4,4 +4,6 @@
 <%= @user.pet_name %>
 <%= @user.pet_age %>
 <%= @user.pet_bio %>
-<%= image_tag @user.pet_pic %>
+<% @user.pet_pic.each do |pic| %>
+  <%= image_tag pic.variant(resize: "500x500") %>
+<% end %>
