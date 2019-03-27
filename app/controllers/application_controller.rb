@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   helper_method :logged_in?
-  before_action :authenticate_user
+  before_action :authenticate_user, except: [:index]
+
+  def index
+    render 'home/index.html.erb'
+  end
 
   def current_user
     User.find_by(id: session[:user_id])
