@@ -15,6 +15,10 @@
 <%= form_for @user do |f| %>
   <%= f.label :username, "Create a username:" %><p>
   <%= f.text_field :username %><p>
+  <%= f.label :password, "Create a password:" %><p>
+  <%= f.password_field :password %><p>
+  <%= f.label :password_confirmation, "Confirm password:" %><p>
+  <%= f.password_field :password_confirmation %><p>
   <%= f.label :email, "Email:" %><p>
   <%= f.text_field :email %><p>
   <%= f.label :location, "Location:" %><p>
