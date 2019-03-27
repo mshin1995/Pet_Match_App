@@ -1,0 +1,7 @@
+<h1><%= @user.pet_name %></h1>
+
+<h3>Your Dislikes:</h3>
+
+<% @user.dislikes.each do |dislike| %>
+  <%= dislike.dislikee.pet_name %><br>
+<% end %>
