@@ -1,8 +1,16 @@
 <h2>Conversations</h2>
 <% @conversations.each do |conversation| %>
-  <% if conversation.sender_id == current_user.id %>
-    <% recipient = User.find(conversation.recipient_id) %>
-    <% current_conversation = Conversation.find_by(sender_id: current_user.id, recipient_id: recipient.id) %>
+  <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+    <% if conversation.sender_id == current_user.id %>
+      <% recipient = User.find(conversation.recipient_id) %>
+      <% current_conversation = Conversation.find_by(sender_id: current_user.id, recipient_id: recipient.id) %>
+    <% else %>
+      <% recipient = User.find(conversation.sender_id) %>
+      <% current_conversation = Conversation.find_by(sender_id: recipient.id, recipient_id: current_user.id) %>
+    <% end %>
+    <% recipient.pet_pic.each do |pic| %>
+      <%= image_tag pic.variant(resize: "500x500") %>
+    <% end %>
     <%= link_to recipient.pet_name, conversation_messages_path(current_conversation.id) %>
   <% end %>
 <% end %>

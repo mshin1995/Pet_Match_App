@@ -15,6 +15,8 @@
     <nav class="navbar navbar-expand-sm bg-light">
       <h1><%= link_to 'PetMatchr', root_path, class: "nav-link" %></h1>
 
+      <% if logged_in? %>
+        <%= link_to 'Profile', root_path, class: "nav-link" %>
       <% if request.path_info.include?("login") %>
       <% elsif request.path_info.include?("users/new") %>
       <% elsif logged_in? %>
