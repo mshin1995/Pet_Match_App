@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :logged_in?
+  helper_method :logged_in?, :current_user
   before_action :authenticate_user, except: [:index]
 
   def index

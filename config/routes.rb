@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :likes, only: [:create, :index]
   resources :users
 
+  resources :conversations do
+    resources :messages
+  end
+
   root 'application#index'
 
   get '/users/:id/random', to: 'users#random'
