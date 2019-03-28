@@ -1,7 +1,7 @@
 <h1>It's a match!</h1>
 
 this link to messages doesn't work
-<p><%= link_to "Message #{@likee.pet_name}!", new_conversation_path(sender_id: @user.id, recipient_id: @likee.id) %><p>
+<p><%= link_to "Message #{@likee.pet_name}!", conversations_path(sender_id: @user.id, recipient_id: @likee.id) %><p>
 
 <p>or</p>
 
