@@ -1,4 +1,13 @@
-<h1>Conversation with <%= @conversation.recipient.pet_name %></h1>
+<h1>
+  Conversation
+<% if @conversation.sender_id == current_user.id || @conversation.recipient_id == current_user.id %>
+  <% if @conversation.sender_id == current_user.id %>
+    <%= @conversation.recipient.pet_name %>
+  <% else %>
+    <%= @conversation.sender.pet_name %>
+  <% end %>
+<% end %>
+</h1>
 
 <% if @over_ten %>
   <%= link_to "Show previous", '?m=all', class:'button is-link' %>
