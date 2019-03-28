@@ -9,3 +9,7 @@
     <%= image_tag pic.variant(resize: "500x500") %><br>
   <% end %>
 </div>
+
+<% if logged_in? && current_user.id == @user.id  %>
+  <%= link_to "Conversations", conversations_path %>
+<% end %>
