@@ -4,15 +4,13 @@
   <%= link_to "Show previous", '?m=all', class:'button is-link' %>
 <% end %>
 
-
-  <% @messages.each do |message| %>
-    <% if message.body %>
-      <% user = User.find(message.user_id) %>
-          <div><strong><%= user.pet_name %></strong> <%= message.message_time %></div>
-          <%= message.body %>
-    <% end %>
+<% @messages.each do |message| %>
+  <% if message.body %>
+    <% user = User.find(message.user_id) %>
+        <div><strong><%= user.pet_name %></strong> <%= message.message_time %></div>
+        <%= message.body %>
   <% end %>
-
+<% end %>
 
 <%= form_for [@conversation, @message] do |f| %>
   <%= f.text_area :body %>

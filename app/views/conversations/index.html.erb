@@ -1,1 +1,8 @@
 <h2>Conversations</h2>
+<% @conversations.each do |conversation| %>
+  <% if conversation.sender_id == current_user.id %>
+    <% recipient = User.find(conversation.recipient_id) %>
+    <% current_conversation = Conversation.find_by(sender_id: current_user.id, recipient_id: recipient.id) %>
+    <%= link_to recipient.pet_name, conversation_messages_path(current_conversation.id) %>
+  <% end %>
+<% end %>
