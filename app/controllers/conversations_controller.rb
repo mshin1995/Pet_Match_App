@@ -12,7 +12,7 @@ class ConversationsController < ApplicationController
      @conversation = Conversation.create!(conversation_params)
    end
    redirect_to conversation_messages_path(@conversation)
- end
+  end
 
  private
     def conversation_params

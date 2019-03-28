@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
-
+gem 'pry'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.0'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
