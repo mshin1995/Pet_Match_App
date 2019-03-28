@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :random,
-    :likes, :dislikes, :matches, :profile]
+    :likes, :dislikes, :matches, :profile, :new_match]
   before_action :already_logged_in, only: [:new, :create]
   skip_before_action :authenticate_user, only: [:new, :create]
 
@@ -39,6 +39,10 @@ class UsersController < ApplicationController
     else
       redirect_to @user
     end
+  end
+
+  def new_match
+    @likee = User.find(params[:likee_id])
   end
 
   private

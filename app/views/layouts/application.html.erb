@@ -13,7 +13,11 @@
 
   <body>
     <nav class="navbar navbar-expand-sm bg-light">
-      <h1><%= link_to 'PetMatchr', root_path, class: "nav-link" %></h1>
+      <% if logged_in? %>
+        <h1><%= link_to 'PetMatchr', user_path+"/profile", class: "nav-link" %></h1>
+      <% else %>
+        <h1><%= link_to 'PetMatchr', root_path, class: "nav-link" %></h1>
+      <% end %>
       <% if logged_in? %>
         <%= link_to 'Logout', logout_path, class: "nav-link" %>
       <% else %>

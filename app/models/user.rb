@@ -4,7 +4,6 @@ class User < ApplicationRecord
   has_many :inverse_likes, class_name: "Like", foreign_key: "likee_id", dependent: :destroy
   has_many :inverse_dislikes, class_name: "Dislike", foreign_key: "dislikee_id", dependent: :destroy
 
-
   # makes sure all fields are filled
   validates :username, :email, :location, :pet_name, :pet_age, :pet_bio, :pet_pic, presence: true
 
@@ -29,7 +28,6 @@ class User < ApplicationRecord
   # validates :pet_pic, { with: "image/jpg", "image/jpeg", "image/png", "image/gif"}
 
   # HELPER METHODS
-
 
   # returns array - all users that haven't been liked or disliked by user
   def users_not_seen_yet
