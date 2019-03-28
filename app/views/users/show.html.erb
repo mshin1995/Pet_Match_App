@@ -7,3 +7,7 @@
 <% @user.pet_pic.each do |pic| %>
   <%= image_tag pic.variant(resize: "500x500") %>
 <% end %>
+
+<% if logged_in? && current_user.id != @user.id %>
+  <%= link_to "Message #{@user.pet_name}", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class:"button is-link" %>
+<% end %>
