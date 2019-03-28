@@ -3,7 +3,6 @@
 this link to messages doesn't work
 <p><%= link_to "Message #{@likee.pet_name}!", new_conversation_path(sender_id: @user.id, recipient_id: @likee.id) %><p>
 
-
 <p>or</p>
 
 <p><%= link_to "go back to swiping", "/users/#{@user.id}/random" %><p>

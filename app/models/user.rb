@@ -56,11 +56,7 @@ class User < ApplicationRecord
   end
 
   def get_match_ids
-    self.who_likes_user.select do |liker|
-      self.who_user_likes.select do |like|
-        like == liker
-      end
-    end
+    self.who_user_likes & self.who_likes_user
   end
 
   def get_matches
