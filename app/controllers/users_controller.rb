@@ -45,6 +45,11 @@ class UsersController < ApplicationController
     @likee = User.find(params[:likee_id])
   end
 
+  def destroy
+    @user.delete
+    redirect_to '/'
+  end
+
   private
 
   def user_params
