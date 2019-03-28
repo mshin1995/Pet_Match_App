@@ -15,15 +15,12 @@
     <nav class="navbar navbar-expand-sm bg-light">
       <h1><%= link_to 'PetMatchr', root_path, class: "nav-link" %></h1>
 
-<<<<<<< HEAD
       <% if logged_in? %>
         <%= link_to 'Profile', root_path, class: "nav-link" %>
-=======
       <% if request.path_info.include?("login") %>
       <% elsif request.path_info.include?("users/new") %>
       <% elsif logged_in? %>
         <%= link_to 'Profile', "/users/#{current_user.id}/profile", class: "nav-link" %>
->>>>>>> claire
         <%= link_to "Find Matches", "/users/#{current_user.id}/random", class: "nav-link" %>
         <%= link_to "Conversations", conversations_path, class: "nav-link" %>
         <%= link_to "Your Matches", "/users/#{current_user.id}/matches", class: "nav-link" %>
