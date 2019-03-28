@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/users/:id/likes', to: 'users#likes'
   get '/users/:id/dislikes', to: 'users#dislikes'
   get '/users/:id/matches', to: 'users#matches'
+  get '/users/:id/profile', to: 'users#profile'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

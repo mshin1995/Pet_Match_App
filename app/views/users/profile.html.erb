@@ -1,0 +1,11 @@
+<div class="container">
+  <h2><%= @user.username %></h2>
+  <%= @user.email %><br>
+  <%= @user.location %><br>
+  <%= @user.pet_name %><br>
+  <%= @user.pet_age %><br>
+  <%= @user.pet_bio %><br>
+  <% @user.pet_pic.each do |pic| %>
+    <%= image_tag pic.variant(resize: "500x500") %><br>
+  <% end %>
+</div>

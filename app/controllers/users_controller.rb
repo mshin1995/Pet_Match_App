@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
-
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :random, :likes, :dislikes, :matches]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :random,
+    :likes, :dislikes, :matches, :profile]
   before_action :already_logged_in, only: [:new, :create]
   skip_before_action :authenticate_user, only: [:new, :create]
-
 
   def index
     @users = User.all
@@ -15,7 +14,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-
     if @user.valid?
       session[:user_id] = @user.id
       redirect_to @user
@@ -41,9 +39,6 @@ class UsersController < ApplicationController
     else
       redirect_to @user
     end
-  end
-
-  def matches
   end
 
   private
