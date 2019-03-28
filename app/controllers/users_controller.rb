@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.valid?
       session[:user_id] = @user.id
-      redirect_to "/users/#{user.id}/profile"
+      redirect_to "/users/#{@user.id}/profile"
     else
       render :new
     end
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to "/users/#{user.id}/profile"
+      redirect_to "/users/#{@user.id}/profile"
     else
       render :edit
     end

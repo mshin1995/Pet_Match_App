@@ -9,13 +9,11 @@ Rails.application.routes.draw do
 
   root 'application#index'
 
-  get '/users/:id/random', to: 'users#random'
-  get '/users/:id/likes', to: 'users#likes'
-  get '/users/:id/dislikes', to: 'users#dislikes'
-  get '/users/:id/matches', to: 'users#matches'
-  get '/users/:id/profile', to: 'users#profile'
-  get '/users/:id/no_matches', to: 'users#no_matches'
-  get '/users/:id/new_match/:likee_id', to: 'users#new_match'
+  get '/users/:id/random', to: 'users#random', as: "/find_matches"
+  get '/users/:id/matches', to: 'users#matches', as: '/matches'
+  get '/users/:id/profile', to: 'users#profile', as: '/profile'
+  get '/users/:id/no_matches', to: 'users#no_matches', as: '/no_matches'
+  get '/users/:id/new_match/:likee_id', to: 'users#new_match', as: '/new_match'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

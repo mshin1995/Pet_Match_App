@@ -3,5 +3,8 @@
 <h3>Your Matches:</h3>
 
 <% @user.get_matches.each do |match| %>
+  <% match.pet_pic.each do |pic| %>
+    <%= image_tag pic.variant(resize: "500x500") %>
+  <% end %>
   <%= link_to match.pet_name, user_path(match) %><br><br>
 <% end %>

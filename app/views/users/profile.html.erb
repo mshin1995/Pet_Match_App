@@ -1,10 +1,9 @@
 <div class="container">
-  <h1>Your Profile</h1>
+  <h1><%= @user.pet_name %>'s Profile</h1>
 
-  <h2><%= @user.username %></h2>
+  <%= @user.username %><br>
   <%= @user.email %><br>
   <%= @user.location %><br>
-  <%= @user.pet_name %><br>
   <%= @user.pet_age %><br>
   <%= @user.pet_bio %><br>
   <% @user.pet_pic.each do |pic| %>
