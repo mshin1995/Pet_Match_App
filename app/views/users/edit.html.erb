@@ -1,19 +1,22 @@
 <h2>Edit Your Profile</h2>
 
 <%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <%= f.label :pet_name %>
-  <%= f.text_field :pet_name %>
-  <%= f.label :pet_age %>
-  <%= f.number_field :pet_age %>
-  <%= f.label :pet_bio %>
-  <%= f.text_area :pet_bio %>
-  <%= f.label :pet_pics %>
-  <%= f.file_field :pet_pic, multiple: true %>
-  <%= f.submit %>
+  <%= f.label :username %><br>
+  <%= f.text_field :username %><br>
+  <%= f.label :email %><br>
+  <%= f.text_field :email %><br>
+  <%= f.label :location %><br>
+  <%= f.text_field :location %><br>
+  <%= f.label :pet_name %><br>
+  <%= f.text_field :pet_name %><br>
+  <%= f.label :pet_age %><br>
+  <%= f.number_field :pet_age %><br>
+  <%= f.label :pet_bio %><br>
+  <%= f.text_area :pet_bio %><br>
+  <%= f.label :pet_pics %><br>
+  <%= f.file_field :pet_pic, multiple: true %><br><br>
+  <%= f.submit %><br>
 <% end %>
+
+this link doesn't work
+<%= link_to "Delete Profile", "/users/#{@user.id}/delete" %>
