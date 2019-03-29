@@ -1,16 +1,28 @@
-<h2>Conversations</h2>
-<% @conversations.each do |conversation| %>
-  <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
-    <% if conversation.sender_id == current_user.id %>
-      <% recipient = User.find(conversation.recipient_id) %>
-      <% current_conversation = Conversation.find_by(sender_id: current_user.id, recipient_id: recipient.id) %>
-    <% else %>
-      <% recipient = User.find(conversation.sender_id) %>
-      <% current_conversation = Conversation.find_by(sender_id: recipient.id, recipient_id: current_user.id) %>
-    <% end %>
-    <% recipient.pet_pic.each do |pic| %>
-      <%= image_tag pic.variant(resize: "500x500") %>
-    <% end %>
-    <%= link_to recipient.pet_name, conversation_messages_path(current_conversation.id) %>
-  <% end %>
-<% end %>
+<section>
+  <div class="space">
+    <h1 align="center" style="font-size:100px; margin-bottom:50px;">Conversations</h1>
+    <div class="container">
+      <% @conversations.each do |conversation| %>
+        <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+          <% if conversation.sender_id == current_user.id %>
+            <% recipient = User.find(conversation.recipient_id) %>
+            <% current_conversation = Conversation.find_by(sender_id: current_user.id, recipient_id: recipient.id) %>
+          <% else %>
+            <% recipient = User.find(conversation.sender_id) %>
+            <% current_conversation = Conversation.find_by(sender_id: recipient.id, recipient_id: current_user.id) %>
+          <% end %>
+        <% recipient.pet_pic.each do |pic| %>
+          <div class="row" style="margin-bottom:80px;">
+            <div class="col-md-6">
+              <img class="img-fluid rounded-circle" src="<%= url_for(pic.variant(resize: "500x500")) %>" alt="">
+            </div>
+        <% end %>
+            <div class="col-md-6">
+              <h2 class="display-4" style="line-height:6em"><%= link_to "Conversation with #{recipient.pet_name}", conversation_messages_path(current_conversation.id), class:"btn btn-primary btn-xl rounded-pill mt-5" %></h2>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>

@@ -38,10 +38,10 @@
               <a class="nav-link" href="<%= "/users/#{current_user.id}/random" %>">Find Matches</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<%= conversations_path %>">Conversations</a>
+              <a class="nav-link" href="<%= "/users/#{current_user.id}/matches" %>">Your Matches</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<%= "/users/#{current_user.id}/matches" %>">Your Matches</a>
+              <a class="nav-link" href="<%= conversations_path %>">Conversations</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<%= logout_path %>">Logout</a>
