@@ -1,18 +1,36 @@
-<%= @random_user.pet_name %></h3>
-<% @random_user.pet_pic.each do |pic| %>
-  <p><%= image_tag pic.variant(resize: "500x500") %></p>
-<% end %>
-<%= @random_user.pet_age %> - <%= @random_user.location %>
-<%= @random_user.pet_bio %>
-
-<%= form_for @dislike do |f| %>
-  <%= f.hidden_field :user_id, :value => @user.id %>
-  <%= f.hidden_field :dislikee_id, :value=> @random_user.id %>
-  <%= f.submit "Dislike" %>
-<% end %>
-
-<%= form_for @like do |f| %>
-  <%= f.hidden_field :user_id, :value => @user.id %>
-  <%= f.hidden_field :likee_id, :value=> @random_user.id %>
-  <%= f.submit "Like" %>
-<% end %>
+<section>
+  <div class="space">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="p-5">
+          <% @random_user.pet_pic.each do |pic| %>
+          <img class="img-fluid rounded-circle" src="<%= url_for(pic.variant(resize: "500x500")) %>" alt="">
+          <% end %>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="p-5">
+          <h2 class="display-4"><%= @random_user.pet_name %></h2>
+          <p>Location: <%= @random_user.location %></p>
+          <p>Age: <%= @random_user.pet_age %></p>
+          <p>Bio: <%= @random_user.pet_bio %></p>
+          <div class="input-group">
+            <%= form_for @dislike do |f| %>
+            <%= f.hidden_field :user_id, :value => @user.id %>
+            <%= f.hidden_field :dislikee_id, :value=> @random_user.id %>
+            <%= f.submit "Dislike", class:"btn btn-primary btn-xl rounded-pill mt-5" %>
+            <% end %>
+            <span class="input-group-addon" style="visibility: hidden">" "</span>
+          <%= form_for @like do |f| %>
+            <%= f.hidden_field :user_id, :value => @user.id %>
+            <%= f.hidden_field :likee_id, :value=> @random_user.id %>
+            <%= f.submit "Like", class:"btn btn-primary btn-xl rounded-pill mt-5" %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
