@@ -18,10 +18,8 @@
             <p>Location: <%= @likee.location %></p>
             <p>Age: <%= @likee.pet_age %></p>
             <p>Bio: <%= @likee.pet_bio %></p>
-            <p><%= link_to "Message #{@likee.pet_name}!", conversations_path(sender_id: @user.id, recipient_id: @likee.id), method:'post', class:"btn btn-primary btn-xl rounded-pill mt-5" %>
-
+            <%= link_to "Message #{@likee.pet_name}!", conversations_path(sender_id: @user.id, recipient_id: @likee.id), method:'post', class:"btn btn-primary btn-xl rounded-pill mt-5" %>
             <%= link_to "go back to swiping", "/users/#{@user.id}/random", class:"btn btn-primary btn-xl rounded-pill mt-5" %>
-
           </div>
         </div>
       </div>
