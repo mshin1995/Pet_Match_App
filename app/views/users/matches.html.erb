@@ -9,7 +9,7 @@
               <img class="img-fluid rounded-circle" src="<%= url_for(pic.variant(resize: "500x500")) %>" alt="">
             </div>
             <div class="col-md-6">
-              <h2 class="display-4"><%= link_to match.pet_name, user_path(match), class:"btn btn-primary btn-xl rounded-pill mt-5" %></h2>
+              <h2 class="display-4" style="line-height:6em"><%= link_to "View #{match.pet_name}'s Profile", user_path(match), class:"btn btn-primary btn-xl rounded-pill mt-5" %></h2>
             </div>
           </div>
         <% end %>
