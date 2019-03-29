@@ -2,7 +2,7 @@
   <header class="text-center">
     <div class="masthead-content">
       <div class="container">
-        
+
         <!-- SHOWS ERRORS -->
         <% if flash[:message] %>
           <div class="text-danger">
@@ -16,7 +16,7 @@
             <%= text_field_tag :username %><p>
           <h3 class="masthead-subheading mb-0"><%= label_tag :password %></h3>
             <%= password_field_tag :password %>
-          <h3><%= submit_tag 'Login', class: "btn btn-primary btn-lg rounded-pill mt-5" %></h3>
+          <h3><%= submit_tag 'Login', class: "btn btn-primary btn-xl rounded-pill mt-5" %></h3>
         <% end %>
       </div>
     </div>
