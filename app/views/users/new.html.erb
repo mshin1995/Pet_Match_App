@@ -1,35 +1,56 @@
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+<div class="space">
+  <header class="text-center">
+    <div class="masthead-content">
+      <div class="container">
 
+        <!-- SHOWS ERRORS -->
+        <% if @user.errors.any? %>
+          <div class="text-danger">
+            <%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:<br>
+            <% @user.errors.full_messages.each do |msg| %>
+              <%= msg %><br>
+            <% end %>
+          </div><br>
+        <% end %>
 
-<h2>Create a Profile</h2>
+        <!-- NEW USER FORM -->
 
-<%= form_for @user do |f| %>
-  <%= f.label :username, "Create a username:" %><p>
-  <%= f.text_field :username %><p>
-  <%= f.label :password, "Create a password:" %><p>
-  <%= f.password_field :password %><p>
-  <%= f.label :password_confirmation, "Confirm password:" %><p>
-  <%= f.password_field :password_confirmation %><p>
-  <%= f.label :email, "Email:" %><p>
-  <%= f.text_field :email %><p>
-  <%= f.label :location, "Location:" %><p>
-  <%= f.text_field :location %><p>
-  <%= f.label :pet_pic, "Upload a picture of your pet:" %><p>
-  <%= f.file_field :pet_pic, multiple: true %><p>
-  <%= f.label :pet_name, "Your pet's name:" %><p>
-  <%= f.text_field :pet_name %><p>
-  <%= f.label :pet_age, "Your pet's age:" %><p>
-  <%= f.number_field :pet_age %><p>
-  <%= f.label :pet_bio, "Write a bio about your pet:" %><p>
-  <%= f.text_area :pet_bio %><p>
-  <%= f.submit "Create New User" %>
-<% end %>
+        <h1>Create a Profile</h1><br>
+
+        <%= form_for @user do |f| %>
+          <h4 class="masthead-subheading mb-0"><%= f.label :username, "Create a username:" %></h4>
+            <%= f.text_field :username %><br><br>
+
+          <h4 class="masthead-subheading mb-0"><%= f.label :password, "Create a password:" %></h4>
+            <%= f.password_field :password %><br><br>
+
+          <h4 class="masthead-subheading mb-0"><%= f.label :password_confirmation, "Confirm password:" %></h4>
+            <%= f.password_field :password_confirmation %><br><br>
+
+          <h4 class="masthead-subheading mb-0"><%= f.label :email, "Email:" %></h4>
+            <%= f.text_field :email %><br><br>
+
+          <h4 class="masthead-subheading mb-0"><%= f.label :location, "Location:" %></h4>
+            <%= f.text_field :location %><br><br>
+
+          <h4 class="masthead-subheading mb-0"><%= f.label :pet_pic, "Upload a picture of your pet:" %></h4>
+            <%= f.file_field :pet_pic, multiple: true %><br><br>
+
+          <h4 class="masthead-subheading mb-0"><%= f.label :pet_name, "Your pet's name:" %></h4>
+            <%= f.text_field :pet_name %><br><br>
+
+          <h4 class="masthead-subheading mb-0"><%= f.label :pet_age, "Your pet's age:" %></h4>
+            <%= f.number_field :pet_age %><br><br>
+
+          <h4 class="masthead-subheading mb-0"><%= f.label :pet_bio, "Write a bio about your pet:" %></h4>
+            <%= f.text_area :pet_bio %><br>
+
+          <%= f.submit "Create New User", class: "btn btn-primary btn-lg rounded-pill mt-5" %>
+
+        <% end %>
+
+      </div>
+    </div>
+  </header>
+  <footer class="space"></footer>
+</div>

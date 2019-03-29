@@ -1,13 +1,24 @@
-<h2>Login</h2>
+<div class="space">
+  <header class="text-center">
+    <div class="masthead-content">
+      <div class="container">
+        
+        <!-- SHOWS ERRORS -->
+        <% if flash[:message] %>
+          <div class="text-danger">
+           <h4><%= flash[:message] %></h4><br>
+          </div>
+        <% end %>
 
-<% if flash[:message] %>
-    <%= flash[:message] %>
-<% end %>
-
-<%= form_tag login_path do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-  <%= submit_tag 'Login' %>
-<% end %>
+        <!-- LOGIN FIELD -->
+        <%= form_tag login_path do %>
+          <h3 class="masthead-subheading mb-0"><%= label_tag :username %></h3>
+            <%= text_field_tag :username %><p>
+          <h3 class="masthead-subheading mb-0"><%= label_tag :password %></h3>
+            <%= password_field_tag :password %>
+          <h3><%= submit_tag 'Login', class: "btn btn-primary btn-lg rounded-pill mt-5" %></h3>
+        <% end %>
+      </div>
+    </div>
+  </header>
+</div>
