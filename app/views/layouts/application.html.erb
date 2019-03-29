@@ -25,7 +25,12 @@
     <!-- NAVIGATION BAR -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="<%= root_path %>">PetMatchr</a>
+
+        <% if logged_in? %>
+          <a class="navbar-brand" href="<%= "/users/#{current_user.id}/profile" %>">PetMatchr</a>
+        <% else %>
+          <a class="navbar-brand" href="<%= root_path %>">PetMatchr</a>
+        <% end %>
 
         <ul class="navbar-nav ml-auto">
           <% if request.path_info.include?("login") %>
