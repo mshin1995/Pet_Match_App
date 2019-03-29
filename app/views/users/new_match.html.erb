@@ -1,8 +1,30 @@
-<h1>It's a match!</h1>
+<section>
+  <div class="space">
+    <h1 class="text-center display-3">It's a match!</h1>
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- SHOW LIKEE PICTURE -->
+        <div class="col-lg-6">
+          <div class="p-5">
+            <% @likee.pet_pic.each do |pic| %>
+              <img class="img-fluid rounded-circle" src="<%= url_for(pic.variant(resize: "500x500")) %>">
+            <% end %>
+          </div>
+        </div>
+        <!-- SHOW LIKEE INFO -->
+        <div class="col-lg-6">
+          <div class="p-5">
+            <h2 class="display-4"><%= @likee.pet_name %></h2>
+            <p>Location: <%= @likee.location %></p>
+            <p>Age: <%= @likee.pet_age %></p>
+            <p>Bio: <%= @likee.pet_bio %></p>
+            <p><%= link_to "Message #{@likee.pet_name}!", conversations_path(sender_id: @user.id, recipient_id: @likee.id), method:'post', class:"btn btn-primary btn-xl rounded-pill mt-5" %>
 
-this link to messages doesn't work
-<p><%= link_to "Message #{@likee.pet_name}!", conversations_path(sender_id: @user.id, recipient_id: @likee.id) %><p>
+            <%= link_to "go back to swiping", "/users/#{@user.id}/random", class:"btn btn-primary btn-xl rounded-pill mt-5" %>
 
-<p>or</p>
-
-<p><%= link_to "go back to swiping", "/users/#{@user.id}/random" %><p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
