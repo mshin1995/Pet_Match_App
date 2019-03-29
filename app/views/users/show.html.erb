@@ -1,13 +1,26 @@
-<h2><%= @user.username %></h2>
-<%= @user.email %>
-<%= @user.location %>
-<%= @user.pet_name %>
-<%= @user.pet_age %>
-<%= @user.pet_bio %>
-<% @user.pet_pic.each do |pic| %>
-  <%= image_tag pic.variant(resize: "500x500") %>
-<% end %>
-
-<% if logged_in? && current_user.id != @user.id %>
-  <%= link_to "Message #{@user.pet_name}", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class:"button is-link" %>
-<% end %>
+<section>
+  <div class="space">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="p-5">
+          <% @user.pet_pic.each do |pic| %>
+          <img class="img-fluid rounded-circle" src="<%= url_for(pic.variant(resize: "500x500")) %>" alt="">
+          <% end %>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="p-5">
+          <h2 class="display-4"><%= @user.pet_name %></h2>
+          <p>Location: <%= @user.location %></p>
+          <p>Age: <%= @user.pet_age %></p>
+          <p>Bio: <%= @user.pet_bio %></p>
+          <% if logged_in? && current_user.id != @user.id %>
+          <p><%= link_to "Message #{@user.pet_name}", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class:"btn btn-primary btn-xl rounded-pill mt-5" %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
