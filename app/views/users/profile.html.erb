@@ -1,15 +1,26 @@
-<div class="container">
-  <h1><%= @user.pet_name %>'s Profile</h1>
-
-  <%= @user.username %><br>
-  <%= @user.email %><br>
-  <%= @user.location %><br>
-  <%= @user.pet_age %><br>
-  <%= @user.pet_bio %><br>
-  <% @user.pet_pic.each do |pic| %>
-    <%= image_tag pic.variant(resize: "500x500") %><br>
-  <% end %>
-
-  <%= link_to "Edit Profile", "/users/#{@user.id}/edit" %>
-
-</div>
+<section>
+  <div class="space">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="p-5">
+          <% @user.pet_pic.each do |pic| %>
+          <img class="img-fluid rounded-circle" src="<%= url_for(pic.variant(resize: "500x500")) %>" alt="">
+          <% end %>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="p-5">
+          <h2 class="display-4"><%= @user.pet_name %>'s Profile</h2>
+          <p>Username: <%= @user.username %></p>
+          <p>Email: <%= @user.email %></p>
+          <p>Location: <%= @user.location %></p>
+          <p>Age: <%= @user.pet_age %></p>
+          <p>Bio: <%= @user.pet_bio %></p>
+          <p><%= link_to "Edit Profile", "/users/#{@user.id}/edit" %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
