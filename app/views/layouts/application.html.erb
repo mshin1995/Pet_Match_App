@@ -1,33 +1,60 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title>PetMatchr</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-sm bg-light">
-      <h1><%= link_to 'PetMatchr', root_path, class: "nav-link" %></h1>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="<%= root_path %>">PetMatchr</a>
 
-      <% if request.path_info.include?("login") %>
-      <% elsif request.path_info.include?("users/new") %>
-      <% elsif logged_in? %>
-        <%= link_to 'Profile', "/users/#{current_user.id}/profile", class: "nav-link" %>
-        <%= link_to "Find Matches", "/users/#{current_user.id}/random", class: "nav-link" %>
-        <%= link_to "Conversations", conversations_path, class: "nav-link" %>
-        <%= link_to "Your Matches", "/users/#{current_user.id}/matches", class: "nav-link" %>
-        <%= link_to 'Logout', logout_path, class: "nav-link" %>
-      <% else %>
-        <%= link_to 'Create a New User', new_user_path, class: "nav-link" %>
-        <%= link_to 'Login', login_path, class: "nav-link" %>
-      <% end %>
-
+        <ul class="navbar-nav ml-auto">
+          <% if request.path_info.include?("login") %>
+          <% elsif request.path_info.include?("users/new") %>
+          <% elsif logged_in? %>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= "/users/#{current_user.id}/profile" %>">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= "/users/#{current_user.id}/random" %>">Find Matches</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= conversations_path %>">Conversations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= "/users/#{current_user.id}/matches" %>">Your Matches</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= logout_path %>">Logout</a>
+          </li>
+        <% else %>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_user_path %>">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= login_path %>">Login</a>
+        </li>
+        <% end %>
+        </ul>
+      </div>
     </nav>
 
       <%= yield %>
